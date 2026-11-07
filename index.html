@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOIR — Loja de Roupas</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- SDK do Supabase (via CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<base target="_blank">
+
+<link rel="manifest" href="manifest.json>
+
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">NOIR<span>.</span></a>
+
+      <nav class="nav">
+        <a href="#inicio" class="nav__link">Início</a>
+        <a href="#produtos" class="nav__link">Produtos</a>
+        <a href="#contato" class="nav__link">Contato</a>
+      </nav>
+
+      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="container hero__content">
+      <h1 class="hero__title">VISTA O <span>ESCURO</span></h1>
+      <p class="hero__subtitle">Moda streetwear em tons de preto. Peças exclusivas, edição limitada.</p>
+      <a href="#produtos" class="btn btn--primary">Ver coleção</a>
+    </div>
+  </section>
+
+  <!-- ============ PRODUTOS ============ -->
+  <main class="container" id="produtos">
+    <div class="section-header">
+      <h2>Nossos Produtos</h2>
+      <div class="filters" id="filters"><!-- categorias via JS --></div>
+    </div>
+
+    <!-- Loading / erro / vazio -->
+    <div class="status" id="status">
+      <p class="status__msg">Carregando produtos…</p>
+    </div>
+
+    <div class="grid" id="productGrid"><!-- produtos via JS --></div>
+  </main>
+
+  <!-- ============ CARRINHO (DRAWER) ============ -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer">
+    <div class="drawer__header">
+      <h3>Seu Carrinho</h3>
+      <button class="drawer__close" id="closeCart">✕</button>
+    </div>
+    <div class="drawer__items" id="cartItems"></div>
+    <div class="drawer__footer">
+      <div class="drawer__total">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn--primary btn--full" id="checkoutBtn">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <!-- ============ MODAL DE COMPRA ============ -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal__box">
+      <button class="modal__close" id="closeModal">✕</button>
+      <h3>Finalizar Pedido</h3>
+      <form id="checkoutForm">
+        <input type="text" id="customerName" placeholder="Seu nome" required />
+        <input type="email" id="customerEmail" placeholder="Seu e-mail" required />
+        <button type="submit" class="btn btn--primary btn--full">Confirmar Pedido</button>
+      </form>
+      <p class="modal__msg" id="orderMsg"></p>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contato">
+    <div class="container footer__inner">
+      <p class="logo">NOIR<span>.</span></p>
+      <p>contato@noir.com.br · São Paulo, Brasil</p>
+      <p class="footer__copy">© 2026 NOIR. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
